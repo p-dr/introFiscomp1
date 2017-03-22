@@ -1,0 +1,37 @@
+SUBROUTINE SHIFT(ARR, POS)
+  REAL ARR(:)
+  INTEGER POS
+
+  DO I=POS, SIZE(ARR)-1
+     ARR(I+1) = ARR(I)
+  END DO
+END SUBROUTINE SHIFT
+
+
+SUBROUTINE MENORES(N, M)
+  INTEGER N, M
+  REAL :: ARR(N), RES(M) = (/0.0,0.0,0.0/)
+  REAL IPT
+  
+  DO I=1, N
+     READ*, IPT
+
+     DO J=M, 1, -1
+        IF ((IPT < RES(I)) .OR. (RES(I) .EQ. 0.0)) THEN
+           CALL SHIFT(RES, I-1)
+           RES(I-1) = IPT
+           EXIT
+        END IF
+     END DO
+     
+        
+  END DO
+  PRINT*, ARR
+
+  
+END SUBROUTINE MENORES
+
+
+PROGRAM P
+  CALL MENORES(5,3)
+END PROGRAM P

@@ -1,0 +1,33 @@
+PROGRAM P
+  REAL SeN
+  WRITE(*,*) SeN(6.28, 5.0)
+  
+END PROGRAM P
+
+RECURSIVE FUNCTION fact(n) RESULT(res)
+
+  IMPLICIT NONE
+  INTEGER, INTENT(IN) :: n
+  INTEGER res
+
+  IF (n == 0) THEN
+     res = 1
+       
+  ELSE
+     res = n * fact(n-1)
+     
+  ENDIF
+
+END FUNCTION fact
+
+
+FUNCTION sen(n, o) RESULT(res)
+  REAL, INTENT(IN) :: n, o
+  REAL res
+  INTEGER FACT
+
+  DO I=0, O
+     RES = RES + (-1.0)**(I) * N**(I*2+1)/FACT(I*2+1)
+  END DO
+END FUNCTION sen
+
