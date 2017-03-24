@@ -1,13 +1,16 @@
 PROGRAM P
-  REAL*8 SEN
-  F = SEN(4.0, 6)
+  REAL*16 SEN
+  F = SEN(3.2, 4)
+!  G = SEN(5.0, 3)
+!  H = SEN(4.0, 3)
+  
 END PROGRAM P
 
 RECURSIVE FUNCTION fact(n) RESULT(res)
 
   IMPLICIT NONE
   INTEGER, INTENT(IN) :: n
-  INTEGER*8 res
+  INTEGER*16 res
 
   IF (n == 0) THEN
      res = 1
@@ -23,24 +26,28 @@ END FUNCTION fact
 FUNCTION sen(n, O) RESULT(res)
   REAL, INTENT(IN) :: n
   INTEGER, INTENT(IN) :: O
-  REAL*8 :: res, AN, TGT
-  INTEGER*8 FACT
-  INTEGER ::I=0
+  REAL*16 :: res, AN, TGT, DIFF
+  INTEGER*16 FACT
+  INTEGER :: I=0
   TGT = SIN(N)
   RES = 0.0
+  DIFF = (ABS(RES - TGT))
   
-  DO WHILE (ABS(RES - TGT) > 10.0**(-O))
+  DO WHILE (DIFF > 10.0**(-O))
      AN = (-1.0)**(I) * N**(I*2+1)/FACT(I*2+1)
      RES = RES + AN
-!     PRINT*,'AN', AN,'RES', RES
+     PRINT*,'AN', AN,'RES', RES
      I=I+1
+     DIFF = (ABS(RES - TGT))
   END DO
+  PRINT*, '========================================================'
   PRINT*, "RESULTADOS DA APROXIMAÇÃO PARA SIN(", N,"), COM PRECISÃO", 10.0**(-O)
   PRINT*, ' '
   PRINT*, "DESVIO:", ABS(RES - TGT)
   PRINT*, "RESULTADO DA APROXIMAÇÃO:", RES
   PRINT*, 'RESULTADO ESPERADO:      ', TGT
   PRINT*, ' '
-  PRINT*, 'ORDEM NECESSÁRIA:', I 
+  PRINT*, 'ORDEM NECESSÁRIA:', I
+  PRINT*, ' '
 END FUNCTION sen
 

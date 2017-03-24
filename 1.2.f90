@@ -2,7 +2,7 @@ RECURSIVE FUNCTION fact(n) RESULT(res)
 
   IMPLICIT NONE
   INTEGER, INTENT(IN) :: n
-  INTEGER res
+  INTEGER*8 res
 
   IF (n == 0) THEN
      res = 1
@@ -15,10 +15,9 @@ RECURSIVE FUNCTION fact(n) RESULT(res)
 END FUNCTION fact
 
 PROGRAM P
-  IMPLICIT NONE
 
-  INTEGER :: fact, F, i
-  REAL :: STIRLING, PI2, e, S
+  INTEGER*8 fact, F
+  REAL*8 STIRLING, PI2, e, S
   PI2 = 8*ATAN(1.0)
   e = 2.718281828459
 
@@ -27,9 +26,9 @@ PROGRAM P
   DO i=1, 20
      S = SQRT(PI2*i)*(i/e)**i
      F = fact(i)
-     WRITE(10,*) i, F, S, ABS(F-S)/F
+     WRITE(*,*) i, F, S, ABS(F-S)/F
   END DO
 
   CLOSE(10)
-     
+  print*, 'OK \o/'
 END PROGRAM P
