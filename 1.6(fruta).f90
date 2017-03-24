@@ -6,7 +6,7 @@ program media
 
 	integer i,n      
 	parameter (n=100)  
-	integer*8 lista(n),ma,mg,dp
+	real*8 lista(n),ma,mg,dp
 	
 	open(10,file='lista.in') 
 	do i=1,n
@@ -14,16 +14,16 @@ program media
 	enddo
 	close(10) 
 
-	write(*,*)"VALORES ALEATÓRIOS",lista
+	write(*,*)"números:",lista
 
 	call calcma(ma,lista,n) 
-	write(*,*)"MÉD. ARITMÉTICA",ma
+	write(*,*)"média aritmética",ma
 
 	call calcmg(mg,lista,n) 
-	write(*,*)"MÉD GEOMÉTRICA",mg
+	write(*,*)"média geométrica",mg
 
 	call calcdp(dp,lista,n)
-	write(*,*)"DESVIO PADRÃO",dp
+	write(*,*)"desvio padrão",dp
 	end
 
 !!!!!!!!!!!!!!!!subrotinas!!!!!!!!!!!!!!!!!!!

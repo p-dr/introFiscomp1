@@ -1,6 +1,6 @@
 PROGRAM P
   REAL*16 SEN
-  F = SEN(3.2, 4)
+  F = SEN(3, 4)
 !  G = SEN(5.0, 3)
 !  H = SEN(4.0, 3)
   
@@ -27,14 +27,18 @@ FUNCTION sen(n, O) RESULT(res)
   REAL, INTENT(IN) :: n
   INTEGER, INTENT(IN) :: O
   REAL*16 :: res, AN, TGT, DIFF
-  INTEGER*16 FACT
-  INTEGER :: I=0
+  INTEGER*16 J, I
+
+  I=0
   TGT = SIN(N)
   RES = 0.0
   DIFF = (ABS(RES - TGT))
   
   DO WHILE (DIFF > 10.0**(-O))
-     AN = (-1.0)**(I) * N**(I*2+1)/FACT(I*2+1)
+     DO J = I*2+1, 1, -1
+        AN = (-1.0)**(I) * N**(I*2+1)/J
+     END DO
+     
      RES = RES + AN
      PRINT*,'AN', AN,'RES', RES
      I=I+1

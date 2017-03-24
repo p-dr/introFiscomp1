@@ -62,7 +62,7 @@ A saída do programa assim se constituiu:
           19   121645100408832000   1.2111285815823707E+017   4.3753694049833243E-003
           20  2432902008176640000   2.4227883519687260E+018   4.1570339347509330E-003
 \end{lstlisting}
-ssintoticas akdjvkjdsvnka
+A diminuição da diferença entre o valor real e a aproximação de Stirling conforme se aumenta o valor de N é condizente com o caráter das aproximações assintóticas de ``N-grande'', especialmente úteis para o cálculo de termos com posições mais avançadas em uma sequência.
 \section{Série de Taylor para o seno}
 
 Criou-se uma função SEN que leva dois argumentos: o valor para o qual deseja-se aproximar o seno (N) e a casa decimal (PREC) até a qual a aproximação deve bater com o resultado da função SIN, nativa.
@@ -78,17 +78,35 @@ no output :(
 \section{Vetores no plano}
 
 Criou-se uma função que recebe dois reais, as coordenadas cartesianas de um vetor bidimensional, e imprime as coordenadas polares do mesmo vetor. Para calcular-se o raio r aplicou-se a raiz da soma dos quadrados das coordenadas cartesianas, e obteve-se $\theta$ com o uso da função nativa para arcotangente (ATAN), aplicada sobre a razão entre a coordenada y e a x ($\frac{y}{x}$).\par
-A partir das coordenadas polares, pode-se facilmente aplicar a rotação anti-horária de um ângulo $\phi$, simplesmente somando-se seu valor ao de $\theta$. Para obter as coordenadas cartesianas do vetor apos o giro, atribuem-se os valores de $cos(\theta + \phi)$ e $sin(\theta + \phi)$, respectivamente, para x e y.
+A partir das coordenadas polares, pode-se facilmente aplicar a rotação anti-horária de um ângulo $\phi$, simplesmente somando-se seu valor ao de $\theta$. Para obter as coordenadas cartesianas do vetor apos o giro, atribuem-se os valores de $r\cos{(\theta + \phi)}$ e $r\sin{(\theta + \phi)}$, respectivamente, para x e y.
 
 OUTPUUUUUUUTTSSSS
 
 \section{Organize uma lista}
 
-Foi criada inicialmente uma subrotina que recebe dois argumentos: uma array (ARR) e um inteiro (POS) que representa uma posição em ARR. Seu papel é deslocar todos os elementos a partir de POS uma posição à frente no vetor, de forma que o a última coordenada é sempre perdida. A cada input recebido, um loop DO percorre ARR de trás pra frente, até que encontre um número N menor que o input, ou que chegue ao início de ARR. Neste ponto, a subrotina desloca os números à frente de N e o programa atribui o input ao local da array logo após N.
+Foi criada inicialmente uma subrotina que recebe dois argumentos: uma array (ARR) e um inteiro (POS) que representa uma posição em ARR. Seu papel é deslocar todos os elementos, a partir de POS, uma posição à frente no vetor, de forma que o a última coordenada é sempre perdida. A cada input recebido, um loop DO percorre ARR de trás pra frente, até que encontre um número N menor que o input, ou que chegue ao início de ARR. Neste ponto, a subrotina desloca os números à frente de N e o programa atribui o input ao local da array logo após N, ou desloca todos os números e atribui o input à primeira posição, no caso de ser menos que todos os elementos de ARR).
 
 OUTOUTOTUOTTUUT
 
 \section{Valores médios e desvio padrão}
 
-Elaborou-se um programa que aplica as fórmulas de desvio padrão, média aritmética e média geométrica a um conunto de dados.
+Elaborou-se um programa que aplica as fórmulas de desvio padrão, média aritmética e média geométrica a um conjunto de dados.
+Utilizou-se o seguinte conjunto de números gerados aleatóriamente:
+
+\begin{lstlisting}
+ 90 21 67 82 57 47 10 60 18 74 45 99 62  9 61 17 81 65 13 85 70 43 86 87 29
+ 33 42 26 94 58 89 95 12 30 84 69  6 77  2 39 23 73 31 53 36 44 24 27 55 80
+ 22 66  1 25 28 91  7 19 51 41 76 20 83  3 46 98 52 35 78 32 34 88 49 15 38
+ 64 59 97 93  5 75 37 54 14 71 96 79 68 16 63 72 56 40 92 50 100 48  4  8 11
+\end{lstlisting}
+
+De forma que se obtiveram os seguintes resultados:
+
+\begin{lstlisting}
+MED. ARITMÉTICA   50.500000000000007     
+MED. GEOMÉTRICA   37.992689344834297     
+DESVIO PADRÃO     28.866070047722072     
+\end{lstlisting}
+
+A média geométrica é especialmente útil, por exemplo, na avaliação de crescimentos proporcionais. Supondo que uma população inicialmente  de 100 pessoas passe a 190 em uma década, 304 na próxima, então para 456 na seguinte, correspondendo a incrementos proporcionais de 90\%, 60\% e 50\%. A média aritmética dos crescimentos resultaria então no valor 66,66\%, que se aplicado três vezes à população inicial resulta em aproximadamente 463 pessoas. Já a média geométrica $\sqrt[3]{1.9 \times 1.6 \times 1.5}$ (aproximadamente 1.6583) trivialmente coincide com o resultado real se usada ao cubo e multiplicando o valor inicial para a população. A média aritmética, nesses casos, exagera a taxa de crescimento esperada.
 \end{document}
