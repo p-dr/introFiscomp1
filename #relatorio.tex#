@@ -155,6 +155,7 @@ SUBROUTINE SHIFT(RES, M, POS)
 
 END SUBROUTINE SHIFT
 \end{lstlisting}
+
 O programa então gerará o seguinte resultado, para diferentes entradas:
 
 \begin{lstlisting}
