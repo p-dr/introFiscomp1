@@ -77,5 +77,18 @@ no output :(
 
 \section{Vetores no plano}
 
-Criou-se uma função que recebe dois reais, as coordenadas cartesianas de um vetor bidimensional, e imprime as coordenadas polares do mesmo vetor. Para calcular-se o raio r aplicou-se a raiz da soma dos quadrados das coordenadas cartesianas, e obteve-se $\theta$ com o uso da função nativa para arcotangente (ATAN), aplicada sobre a razão entre a coordenada y e a x ($\frac{y}{x}$).
+Criou-se uma função que recebe dois reais, as coordenadas cartesianas de um vetor bidimensional, e imprime as coordenadas polares do mesmo vetor. Para calcular-se o raio r aplicou-se a raiz da soma dos quadrados das coordenadas cartesianas, e obteve-se $\theta$ com o uso da função nativa para arcotangente (ATAN), aplicada sobre a razão entre a coordenada y e a x ($\frac{y}{x}$).\par
+A partir das coordenadas polares, pode-se facilmente aplicar a rotação anti-horária de um ângulo $\phi$, simplesmente somando-se seu valor ao de $\theta$. Para obter as coordenadas cartesianas do vetor apos o giro, atribuem-se os valores de $cos(\theta + \phi)$ e $sin(\theta + \phi)$, respectivamente, para x e y.
+
+OUTPUUUUUUUTTSSSS
+
+\section{Organize uma lista}
+
+Foi criada inicialmente uma subrotina que recebe dois argumentos: uma array (ARR) e um inteiro (POS) que representa uma posição em ARR. Seu papel é deslocar todos os elementos a partir de POS uma posição à frente no vetor, de forma que o a última coordenada é sempre perdida. A cada input recebido, um loop DO percorre ARR de trás pra frente, até que encontre um número N menor que o input, ou que chegue ao início de ARR. Neste ponto, a subrotina desloca os números à frente de N e o programa atribui o input ao local da array logo após N.
+
+OUTOUTOTUOTTUUT
+
+\section{Valores médios e desvio padrão}
+
+Elaborou-se um programa que aplica as fórmulas de desvio padrão, média aritmética e média geométrica a um conunto de dados.
 \end{document}
