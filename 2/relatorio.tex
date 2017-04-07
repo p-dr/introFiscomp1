@@ -18,7 +18,9 @@
 
 O presente projeto visa o estudo da implementação de números pseudo-aleatórios na linguagem de programação Fortran90. Serão criados e analisados geradores congruentes lineares. Em um segundo momento, será estudada uma aplicação típica: o processo de decaimento radioativo para uma determinada quantidade de amostras de núcleos instáveis. Gráficos do decaimento serão elaborados e sua natureza, discutida.
 
-\section{Números aleatórios}
+\section{Desenvolvimento}
+
+\subsection{Números aleatórios}
 
 Criou-se um gerador congruente linear de números aleatórios sob a forma de uma subrotina, chamada GENRDM (de ``generate random number''). Seu funcionamento consistia em modificar uma variável inteira R, cujo valor inicial se nomeia ``semente'' ou ``seed'', para um novo valor randômico a cada chamada, segundo a seguinte expressão:
 
@@ -260,7 +262,7 @@ As sequências geradas foram então plotadas em gráficos de dispersão:
 
 Como esperado, a análise visual não revela nenhum padrão consistente nas representações gráficas. Tal desordem mostra-se útil em aplicações simples, menos formais, nas quais o rigor na aleatoriedade não se faz necessária.
 
-\section{Decaimento radioativo}
+\subsection{Decaimento radioativo}
 O objetivo do vigente procedimento foi simular um processo de decaimento radioativo, por meio da produção de números pseudo-aleatórios.\par
 Para esse programa, utilizou-se a função ran2, que gera números pseudo-aleatórios entre 0 e 1 com sementes diferentes a cada vez. Pode-se encontrá-la no site do Model, Analysis, and Prediction Program, da NASA (<https://map.nasa.gov/GEOSgcm_f90toHTML/html_code/src/nr_ran2_gasdev.f90.html\>, Acesso em: 6 abr 2017).\paragraph{}
 A probabilidade $P$ de que um átomo decaia em um intervalo de tempo $dt$ se relaciona com o tempo de meia vida $\tau$ da seguinte forma:
