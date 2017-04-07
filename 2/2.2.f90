@@ -1,24 +1,29 @@
 program main2
 
-  !implicit none
-  REAL ran2, t, dt, tmax
-  INTEGER A, ats,n , decaidos, r, n0, j
-  real, allocatable :: mat(:,:)
+!  implicit none
+
+  REAL ran2, dt, tmax
+  INTEGER A, ats,n , decaidos, r, n0, j, sumats
+  integer, allocatable :: mat(:,:)
+  real, allocatable :: med(:), desvpad(:), desvpadmed(:)
 
   a = 12345
-  r = 1000
+  r = 10000
   decaidos = 0
   tmax = 8
   dt = 0.01
   n0=1000
   ats = n0 !quantos atomos temos
-
+  sumats = 0
+ 
   allocate(mat(tmax/dt, r))
+  allocate(med(tmax/dt))
+  allocate(desvpad(tmax/dt))
+  allocate(desvpadmed(tmax/dt))
 
   do j=1, r
      
-     !open(j, file='decai'//char(j/10+48)//'.dat')
-     do t=dt, tmax, dt
+     do t=1, tmax/dt
 
         do n=1, ats
            if (ran2(a) .lt. dt) then
@@ -29,23 +34,68 @@ program main2
 
         ats = ats - decaidos
         !if (decaidos /= 0) print*, 'agora temos', ats, 'atomos'
-        mat(j,t/dt) = ats
-!        print*, '----------------'
+        mat(t, j) = ats
+ !       print*, '----------------'
         decaidos = 0
      end do
 
      ats = n0
-     close(j)
   end do
 
-  open(10, file='mat.dat')
+  open(10, file='mat.txt')
   write(10,*) mat
   close(10)
 
-  do k=1, r
-     print*, mat(k,1)
+!! printa primeira coluna
+!  
+!  do t=dt, tmax, dt
+!     print*, mat(t/dt,1)
+!  end do
+
+  !calcular média
+  nominador = 0
+  
+  do i=1, tmax/dt
+     do j=1, r
+        sumats = sumats + mat(i, j)
+!        print*, sumats
+     end do
+
+     med(i) = dfloat(sumats)/dfloat(r)
+     sumats = 0
+
+     do j=1, r
+        nominador = nominador + (mat(i, j)-med(i))**2
+        
+     end do
+
+     desvpad(i) = sqrt(dfloat(nominador)/dfloat(r))
+     desvpadmed(i) = dfloat(nominador)/(dfloat(r)*med(i))
+     nominador = 0
+
+  end do
+
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  ! open(20, file='med.dat')    !
+  ! do i=1, size(med)           !
+  !    write(20,*) i*dt, med(i) !
+  ! end do                      !
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  open(30, file='desvpad.dat')
+  do i=1, size(desvpad)
+     write(30,*) i*dt, desvpad(i)
+  end do
+
+  open(40, file='desvpadmed.dat')
+  do i=1, size(desvpadmed)
+     write(40,*) i*dt, desvpadmed(i)
   end do
   
+  close(20)
+  close(30)
+  close(40)
+
   deallocate(mat)
 
 
