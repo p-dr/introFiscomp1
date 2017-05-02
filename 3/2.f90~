@@ -1,0 +1,29 @@
+program main
+  real*8 ref
+
+  ref = 4./65. * (dexp(2) * (dsin(1/4)+8*dcos(1/4) - 8)
+  print*, ref
+  
+contains
+
+real*8  function f(x, h)
+    real*8 x, h
+    f = dexp(2*x)*dcos(x/4)
+    return
+  end function f
+  
+real*8  function trap(x,h)
+  real*8 x, h
+
+  trap=0.
+  print*, trap
+  do i=1, 1/h-1
+     trap = trap + f(i*h)
+  end don
+
+  trap = h * (trap + 0.5d0 * (f(0) + f(1)))
+  return
+end function trap
+
+
+end program main

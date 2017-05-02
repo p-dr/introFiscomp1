@@ -1,0 +1,1598 @@
+%% ================================================================================
+%% This LaTeX file was created by AbiWord.                                         
+%% AbiWord is a free, Open Source word processor.                                  
+%% More information about AbiWord is available at http://www.abisource.com/        
+%% ================================================================================
+
+\documentclass[a4paper,portrait,12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+%% Please revise the following command, if your babel
+%% package does not support en-US
+\usepackage[en]{babel}
+\usepackage{color}
+\usepackage{hyperref}
+ 
+\begin{document}
+
+
+\begin{flushleft}
+Introdu\c{c}\~{a}o \`{a} F\'{i}sica Computacional 1S/2017
+\end{flushleft}
+
+
+\begin{flushleft}
+Projeto 3 --- Derivadas e integrais num\'{e}ricas
+\end{flushleft}
+
+
+\begin{flushleft}
+In\'{i}cio: 07 de Abril de 2017
+\end{flushleft}
+
+
+\begin{flushleft}
+Data da entrega do relat\'{o}rio: 28 de Abril de 2017
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Prof.: Eric C. Andrade
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Data m\'{a}xima de entrega do relat\'{o}rio: 05 de Maio de 2017
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Descri\c{c}\~{a}o:
+\end{flushleft}
+
+
+\begin{flushleft}
+Discutiremos aqui brevemente alguns conceitos b\'{a}sicos de c\'{a}lculo num\'{e}rico que s\~{a}o muito \'{u}teis no dia a dia da
+\end{flushleft}
+
+
+\begin{flushleft}
+pesquisa. O ingrediente b\'{a}sico que permeia todos esses m\'{e}todos \'{e} a expans\~{a}o em s\'{e}rie de Taylor de uma fun\c{c}\~{a}o f (x)
+\end{flushleft}
+
+
+\begin{flushleft}
+ao redor de x0
+\end{flushleft}
+
+
+\begin{flushleft}
+f (x) = f (x0 ) + f 0 (x0 ) (x $-$ x0 ) +
+\end{flushleft}
+
+
+
+
+
+1 00
+
+
+1
+
+
+2
+
+
+3
+
+
+\begin{flushleft}
+f (x0 ) (x $-$ x0 ) + f 000 (x0 ) (x $-$ x0 ) + . . .
+\end{flushleft}
+
+
+2!
+
+
+3!
+
+
+
+
+
+(1)
+
+
+
+
+
+\begin{flushleft}
+Sugest\~{a}o de execu\c{c}\~{a}o:
+\end{flushleft}
+
+
+\begin{flushleft}
+Aula 5
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+1) Derivada num\'{e}rica
+\end{flushleft}
+
+
+\begin{flushleft}
+Dada uma fun\c{c}\~{a}o f (x), podemos obter uma aproxima\c{c}\~{a}o para sua derivada utilizando a defini\c{c}\~{a}o
+\end{flushleft}
+
+
+\begin{flushleft}
+f 0 (x) = limh$\rightarrow$0
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+f (x + h) $-$ f (x)
+\end{flushleft}
+
+
+,
+
+
+\begin{flushleft}
+h
+\end{flushleft}
+
+
+
+
+
+(2)
+
+
+
+
+
+\begin{flushleft}
+s\'{o} que para um h finito
+\end{flushleft}
+
+
+\begin{flushleft}
+f 0 (x) $\approx$
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+f (x + h) $-$ f (x)
+\end{flushleft}
+
+
+.
+
+
+\begin{flushleft}
+h
+\end{flushleft}
+
+
+
+
+
+(3)
+
+
+
+
+
+\begin{flushleft}
+\`{A} primeira vista, parece que tudo que temos que fazer \'{e} escolher um valor de h bem pequeno que obteremos o
+\end{flushleft}
+
+
+\begin{flushleft}
+valor exato da derivada. Como veremos explicitamente em um exemplo, esse n\~{a}o \'{e} caso, pois rapidamente perdemos
+\end{flushleft}
+
+
+\begin{flushleft}
+precis\~{a}o num\'{e}rica.
+\end{flushleft}
+
+
+\begin{flushleft}
+A primeira pergunta que nos fazemos \'{e} qual \'{e} o erro que comentemos ao passar de (2) para (3)? Para respondermos
+\end{flushleft}
+
+
+\begin{flushleft}
+essa quest\~{a}o, escrevemos
+\end{flushleft}
+
+
+\begin{flushleft}
+f (x + h) = f (x) + hf 0 (x) +
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+h2 00
+\end{flushleft}
+
+
+\begin{flushleft}
+f (x) + . . . ,
+\end{flushleft}
+
+
+2!
+
+
+
+
+
+\begin{flushleft}
+donde obtemos a derivada para frente de 2 pontos
+\end{flushleft}
+
+
+\begin{flushleft}
+ff0 (x) =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+f (x + h) $-$ f (x)
+\end{flushleft}
+
+
+\begin{flushleft}
++ O (h) .
+\end{flushleft}
+
+
+\begin{flushleft}
+h
+\end{flushleft}
+
+
+
+
+
+(4)
+
+
+
+
+
+\begin{flushleft}
+Aqui o s\'{i}mbolo O (h) quer dizer que o erro que cometemos ao truncar a expans\~{a}o em s\'{e}rie de Taylor para o c\'{a}lculo
+\end{flushleft}
+
+
+\begin{flushleft}
+de f 0 (x) \'{e} da ordem de h. Analogamente, podemos calcular a derivada para tr\'{a}s de 2 pontos
+\end{flushleft}
+
+
+\begin{flushleft}
+ft0 (x) =
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+f (x) $-$ f (x $-$ h)
+\end{flushleft}
+
+
+\begin{flushleft}
++ O (h) .
+\end{flushleft}
+
+
+\begin{flushleft}
+h
+\end{flushleft}
+
+
+
+
+
+(5)
+
+
+
+
+
+\begin{flushleft}
+Se combinarmos as equa\c{c}\~{o}es (4) e (5) podemos escrever a derivada sim\'{e}trica de 3 pontos
+\end{flushleft}
+
+
+?
+
+
+1 0
+
+
+\begin{flushleft}
+ff (x) + ft0 (x) ,
+\end{flushleft}
+
+
+2
+
+
+?
+
+
+\begin{flushleft}
+f (x + h) $-$ f (x $-$ h)
+\end{flushleft}
+
+
+0
+
+
+\begin{flushleft}
+f3s (x) =
+\end{flushleft}
+
+
+\begin{flushleft}
++ O h2 .
+\end{flushleft}
+
+
+\begin{flushleft}
+2h
+\end{flushleft}
+
+
+0
+
+
+\begin{flushleft}
+f3s
+\end{flushleft}
+
+
+\begin{flushleft}
+(x) =
+\end{flushleft}
+
+
+
+
+
+(6)
+
+
+
+
+
+\newpage
+2
+
+
+\begin{flushleft}
+ff0 (1)
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+h
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+ft0 (1)
+\end{flushleft}
+
+
+
+
+
+0
+
+
+\begin{flushleft}
+f3s
+\end{flushleft}
+
+
+(1)
+
+
+
+
+
+0
+
+
+\begin{flushleft}
+f5s
+\end{flushleft}
+
+
+(1)
+
+
+
+
+
+00
+
+
+\begin{flushleft}
+f3s
+\end{flushleft}
+
+
+(1)
+
+
+
+
+
+00
+
+
+\begin{flushleft}
+f5s
+\end{flushleft}
+
+
+(1)
+
+
+
+
+
+5 × 10$-$1
+
+
+1 × 10$-$1
+
+
+5 × 10$-$2
+
+
+1 × 10$-$2
+
+
+5 × 10$-$3
+
+
+1 × 10$-$3
+
+
+5 × 10$-$4
+
+
+1 × 10$-$4
+
+
+5 × 10$-$5
+
+
+1 × 10$-$5
+
+
+5 × 10$-$6
+
+
+1 × 10$-$6
+
+
+1 × 10$-$7
+
+
+1 × 10$-$8
+
+
+\begin{flushleft}
+Tabela I: Derivadas num\'{e}ricas de f (x) em (10) no ponto x = 1 por meio de diferentes aproxima\c{c}\~{o}es em fun\c{c}\~{a}o do passo h.
+\end{flushleft}
+
+
+
+
+
+?
+
+
+\begin{flushleft}
+Note que um h\'{a} um nesse caso o erro passa agora para O h2 , ou seja melhoramos nossa converg\^{e}ncia. Isso ocorre
+\end{flushleft}
+
+
+\begin{flushleft}
+porque o termo envolvendo a derivada segunda na expans\~{a}o em Taylor \'{e} sim\'{e}trico em h e assim a primeira corre\c{c}\~{a}o
+\end{flushleft}
+
+
+\begin{flushleft}
+vem apenas do termo c\'{u}bico. Qual \'{e} o pre\c{c}o que pagamos para esse ganho em precis\~{a}o? Temos que agora avaliar
+\end{flushleft}
+
+
+\begin{flushleft}
+tanto f (x + h) quanto f (x $-$ h), o que aumenta o custo computacional. Podemos continuar com esse procedimento
+\end{flushleft}
+
+
+\begin{flushleft}
+e calcular agora da derivada sim\'{e}trica de 5 pontos
+\end{flushleft}
+
+
+0
+
+
+\begin{flushleft}
+f5s
+\end{flushleft}
+
+
+\begin{flushleft}
+(x) =
+\end{flushleft}
+
+
+
+
+
+?
+
+
+\begin{flushleft}
+f (x $-$ 2h) $-$ 8f (x $-$ h) + 8f (x + h) $-$ f (x + 2h)
+\end{flushleft}
+
+
+\begin{flushleft}
++ O h4 ,
+\end{flushleft}
+
+
+\begin{flushleft}
+12h
+\end{flushleft}
+
+
+
+
+
+(7)
+
+
+
+
+
+\begin{flushleft}
+que agora possui um erro da ordem de h4 com o pre\c{c}o de termos que avaliar a fun\c{c}\~{a}o tamb\'{e}m em x$\pm$2h. Naturalmente,
+\end{flushleft}
+
+
+\begin{flushleft}
+derivadas sim\'{e}tricas envolvendo mais pontos podem ser constru\'{i}das de modo an\'{a}logo.
+\end{flushleft}
+
+
+\begin{flushleft}
+Podemos aplicar a mesma ideia calcularmos numericamente a derivada segunda de uma fun\c{c}\~{a}o. Partimos da
+\end{flushleft}
+
+
+\begin{flushleft}
+seguinte igualdade
+\end{flushleft}
+
+
+?
+
+
+\begin{flushleft}
+f (x + h) $-$ 2f (x) + f (x $-$ h) = f 00 (x) h2 + O h4
+\end{flushleft}
+
+
+\begin{flushleft}
+e chegamos assim \`{a} derivada segunda sim\'{e}trica de tr\^{e}s pontos
+\end{flushleft}
+
+
+00
+
+
+\begin{flushleft}
+f3s
+\end{flushleft}
+
+
+\begin{flushleft}
+(x) =
+\end{flushleft}
+
+
+
+
+
+?
+
+
+\begin{flushleft}
+f (x + h) $-$ 2f (x) + f (x $-$ h)
+\end{flushleft}
+
+
+\begin{flushleft}
++ O h2 .
+\end{flushleft}
+
+
+2
+
+
+\begin{flushleft}
+h
+\end{flushleft}
+
+
+
+
+
+(8)
+
+
+
+
+
+\begin{flushleft}
+Tamb\'{e}m podemos escrever uma express\~{a}o para a derivada segunda sim\'{e}trica de cinco pontos
+\end{flushleft}
+
+
+00
+
+
+\begin{flushleft}
+f5s
+\end{flushleft}
+
+
+\begin{flushleft}
+(x) =
+\end{flushleft}
+
+
+
+
+
+?
+
+
+\begin{flushleft}
+$-$f (x $-$ 2h) + 16f (x $-$ h) $-$ 30f (x) + 16f (x + h) $-$ f (x + 2h)
+\end{flushleft}
+
+
+\begin{flushleft}
++ O h4 .
+\end{flushleft}
+
+
+2
+
+
+\begin{flushleft}
+12h
+\end{flushleft}
+
+
+
+
+
+(9)
+
+
+
+
+
+\begin{flushleft}
+Baseado nessa discuss\~{a}o, considere agora a seguinte fun\c{c}\~{a}o
+\end{flushleft}
+
+
+\begin{flushleft}
+f (x) = e2x senx.
+\end{flushleft}
+
+
+
+
+
+(10)
+
+
+
+
+
+\begin{flushleft}
+(a) Escreva um programa FORTRAN que calcule as derivadas de f (x) para as diferentes aproxima\c{c}\~{o}es e valores
+\end{flushleft}
+
+
+\begin{flushleft}
+de h no ponto x = 1.
+\end{flushleft}
+
+
+\begin{flushleft}
+(b) Preencha a tabela I com o valor absoluto dos desvios em rela\c{c}\~{a}o aos resultados exatos |$\epsilon$|. Aponte o valor \'{o}timo
+\end{flushleft}
+
+
+\begin{flushleft}
+de h em cada um dos casos e discuta seus resultados.
+\end{flushleft}
+
+
+0
+
+
+00
+
+
+0
+
+
+\begin{flushleft}
+(1), f5s
+\end{flushleft}
+
+
+\begin{flushleft}
+(1) e f3s
+\end{flushleft}
+
+
+\begin{flushleft}
+(1). Verifique que a ordem da converg\^{e}ncia
+\end{flushleft}
+
+
+\begin{flushleft}
+(c) Fa\c{c}a um gr\'{a}fico de log10 |$\epsilon$| × log10 h para ff0 (1), f3s
+\end{flushleft}
+
+
+\begin{flushleft}
+das aproxima\c{c}\~{o}es coincide com aquela esperada teoricamente e discuta seus resultados.
+\end{flushleft}
+
+
+
+
+
+\newpage
+3
+
+
+
+
+
+\begin{flushleft}
+Figura 1: Representa\c{c}\~{a}o geom\'{e}trica do c\'{a}lculo da integral. Dividimos o intervalo [a, b] em N subintervalos de igual tamanho
+\end{flushleft}
+
+
+\begin{flushleft}
+h = (b $-$ a) /N .
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+2) Integra\c{c}\~{a}o num\'{e}rica
+\end{flushleft}
+
+
+\begin{flushleft}
+A integral
+\end{flushleft}
+
+
+ˆ
+
+
+\begin{flushleft}
+I=
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+b
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+f (x) dx,
+\end{flushleft}
+
+
+
+
+
+(11)
+
+
+
+
+
+\begin{flushleft}
+a
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+possui um significado geom\'{e}trico muito simples: ela d\'{a} a \'{a}rea contida sob a curva descrita pela fun\c{c}\~{a}o f (x) indo
+\end{flushleft}
+
+
+\begin{flushleft}
+de x = a at\'{e} x = b. A ideia b\'{a}sica por tr\'{a}s dos m\'{e}todos b\'{a}sicos de integra\c{c}\~{a}o \'{e} dividir o intervalo [a, b] em N
+\end{flushleft}
+
+
+\begin{flushleft}
+subintervalos de igual tamanho h = (b $-$ a) /N , de tal forma que a integral \'{e} agora dada por, veja figura 1
+\end{flushleft}
+
+
+\begin{flushleft}
+ˆ b
+\end{flushleft}
+
+
+\begin{flushleft}
+ˆ a+h
+\end{flushleft}
+
+
+\begin{flushleft}
+ˆ a+2h
+\end{flushleft}
+
+
+\begin{flushleft}
+ˆ b
+\end{flushleft}
+
+
+\begin{flushleft}
+I=
+\end{flushleft}
+
+
+\begin{flushleft}
+f (x) dx =
+\end{flushleft}
+
+
+\begin{flushleft}
+f (x) dx +
+\end{flushleft}
+
+
+\begin{flushleft}
+f (x) dx + . . .
+\end{flushleft}
+
+
+\begin{flushleft}
+f (x) dx.
+\end{flushleft}
+
+
+(12)
+
+
+\begin{flushleft}
+a
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+a
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+a+h
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+b$-$h
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+O que fazemos agora \'{e} aproximarmos f (x) em cada um dos intervalos por fun\c{c}\~{o}es simples, para as quais podemos
+\end{flushleft}
+
+
+\begin{flushleft}
+fazer a integral analiticamente. Come\c{c}amos com uma aproxima\c{c}\~{a}o linear para f (x) ao redor de x = u
+\end{flushleft}
+
+
+\begin{flushleft}
+f (x) $\approx$ f (u) + f 0 (u) (x $-$ u) $\approx$ f (u) +
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+f (u + h) $-$ f (u)
+\end{flushleft}
+
+
+\begin{flushleft}
+(x $-$ u) ,
+\end{flushleft}
+
+
+\begin{flushleft}
+h
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+onde utilizamos a Eq. 4. Temos assim que
+\end{flushleft}
+
+
+?
+
+
+\begin{flushleft}
+ˆ u+h
+\end{flushleft}
+
+
+\begin{flushleft}
+ˆ u+h ?
+\end{flushleft}
+
+
+\begin{flushleft}
+f (u + h) $-$ f (u)
+\end{flushleft}
+
+
+1
+
+
+\begin{flushleft}
+I=
+\end{flushleft}
+
+
+\begin{flushleft}
+f (x) dx =
+\end{flushleft}
+
+
+\begin{flushleft}
+f (u) +
+\end{flushleft}
+
+
+\begin{flushleft}
+(x $-$ u) dx = h (f (u + h) + f (u)) ,
+\end{flushleft}
+
+
+(13)
+
+
+\begin{flushleft}
+h
+\end{flushleft}
+
+
+2
+
+
+\begin{flushleft}
+u
+\end{flushleft}
+
+
+\begin{flushleft}
+u
+\end{flushleft}
+
+
+?
+
+
+?
+
+
+\begin{flushleft}
+que \'{e} conhecida como regra do trap\'{e}zio. Seu erro local \'{e} O h3 e o erro global \'{e} de O h2 .1 A integral no intervalo
+\end{flushleft}
+
+
+
+
+
+1
+
+
+
+
+
+\begin{flushleft}
+O erro local \'{e} o erro em cada uma das N parti\c{c}\~{o}es. Ele depende de h = (b $-$ a) /N . Como temos N parti\c{c}\~{o}es, temos que somar N erros
+\end{flushleft}
+
+
+\begin{flushleft}
+locais e, por isso, o erro global \'{e} sempre uma pot\^{e}ncia de h menor do que o erro local.
+\end{flushleft}
+
+
+
+
+
+\newpage
+4
+
+
+\begin{flushleft}
+h
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Regra do trap\'{e}zio Regra de Simpson
+\end{flushleft}
+
+
+
+
+
+1/2
+
+
+1/4
+
+
+1/8
+
+
+1/16
+
+
+1/32
+
+
+1/64
+
+
+1/128
+
+
+1/256
+
+
+1/1024
+
+
+1/2048
+
+
+1/4096
+
+
+1/8192
+
+
+\begin{flushleft}
+Tabela II: Integral num\'{e}rica de f (x) em (16) no intervalo [0, 1] por meio de duas diferentes aproxima\c{c}\~{o}es como fun\c{c}\~{a}o da
+\end{flushleft}
+
+
+\begin{flushleft}
+parti\c{c}\~{a}o do intervalo h.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+[a, b] \'{e} ent\~{a}o dada por
+\end{flushleft}
+
+
+\begin{flushleft}
+IT $\approx$ h [0.5f (a) + f (a + h) + f (a + 2h) + f (a + 3h) + . . . + f (b $-$ h) + 0.5f (b)] .
+\end{flushleft}
+
+
+
+
+
+(14)
+
+
+
+
+
+\begin{flushleft}
+Para escrever um c\'{o}digo com esse m\'{e}todo, \'{e} mais eficiente calcularmos separadamente a contribui\c{c}\~{a}o dos extremos,
+\end{flushleft}
+
+
+\begin{flushleft}
+dada por 0.5h (f (a) + f (b)), e realizarmos um la\c{c}o para calcularmos as contribui\c{c}\~{o}es restantes das parti\c{c}\~{o}es internas.
+\end{flushleft}
+
+
+\begin{flushleft}
+Podemos agora considerar uma aproxima\c{c}\~{a}o quadr\'{a}tica para f (x) ao redor de x = u
+\end{flushleft}
+
+
+?
+
+
+?
+
+
+?
+
+
+?
+
+
+\begin{flushleft}
+1 f (u + h) $-$ 2f (u) + f (u $-$ h)
+\end{flushleft}
+
+
+\begin{flushleft}
+f (u + h) $-$ f (u)
+\end{flushleft}
+
+
+2
+
+
+\begin{flushleft}
+(x $-$ u) +
+\end{flushleft}
+
+
+\begin{flushleft}
+f (x) $\approx$ f (u) +
+\end{flushleft}
+
+
+\begin{flushleft}
+(x $-$ u) ,
+\end{flushleft}
+
+
+\begin{flushleft}
+h
+\end{flushleft}
+
+
+2
+
+
+\begin{flushleft}
+h2
+\end{flushleft}
+
+
+\begin{flushleft}
+onde utilizamos a Eq. 8. Nesse caso, precisamos de tr\^{e}s pontos em nosso intervalo e a integral que avaliaremos \'{e}
+\end{flushleft}
+
+
+\begin{flushleft}
+ˆ u+h
+\end{flushleft}
+
+
+1
+
+
+\begin{flushleft}
+h
+\end{flushleft}
+
+
+(15)
+
+
+\begin{flushleft}
+I=
+\end{flushleft}
+
+
+\begin{flushleft}
+f (x) dx = f (u) 2h + (f (u + h) $-$ 2f (u) + f (u $-$ h)) = (f (u + h) + 4f (u) + f (u $-$ h)) ,
+\end{flushleft}
+
+
+3
+
+
+3
+
+
+\begin{flushleft}
+u$-$h
+\end{flushleft}
+
+
+?
+
+
+\begin{flushleft}
+que \'{e} conhecida como regra de Simpson. Seu erro global \'{e} O h4 . A integral no intervalo [a, b] \'{e} ent\~{a}o dada por
+\end{flushleft}
+
+
+\begin{flushleft}
+h
+\end{flushleft}
+
+
+\begin{flushleft}
+[f (a) + 4f (a + h) + 2f (a + 2h) + 4f (a + 3h) + 2f (a + 4h) . . . + f (b)] .
+\end{flushleft}
+
+
+3
+
+
+\begin{flushleft}
+Novamente, para a confec\c{c}\~{a}o do c\'{o}digo para esse m\'{e}todo, \'{e} mais eficiente calcularmos separadamente a contribui\c{c}\~{a}o
+\end{flushleft}
+
+
+\begin{flushleft}
+dos extremos, agora dada por h3 (f (a) + f (b)) , e realizarmos um la\c{c}o para calcularmos as contribui\c{c}\~{o}es restantes das
+\end{flushleft}
+
+
+\begin{flushleft}
+parti\c{c}\~{o}es internas. Note, contudo, que nesse os termos de ordem par e \'{i}mpar possuem pesos diferentes.
+\end{flushleft}
+
+
+\begin{flushleft}
+Podemos continuar esse processo e considerar cada vez mais pontos e polin\^{o}mios de grau superior como aproxima\c{c}\~{o}es
+\end{flushleft}
+
+
+\begin{flushleft}
+para f (x). Contudo, na pr\'{a}tica a s\'{e}rie de Taylor \'{e} apenas localmente convergente e portanto n\~{a}o \'{e} imediato que um
+\end{flushleft}
+
+
+\begin{flushleft}
+polin\^{o}mio de ordem maior se traduza em uma melhor converg\^{e}ncia. As duas aproxima\c{c}\~{o}es descritas acima formam
+\end{flushleft}
+
+
+\begin{flushleft}
+a base de m\'{e}todos bem robusto para avaliarmos integrais mesmo de fun\c{c}\~{o}es n\~{a}o muito suaves. O segredo do sucesso
+\end{flushleft}
+
+
+\begin{flushleft}
+do m\'{e}todo est\'{a} em variarmos o valor das parti\c{c}\~{o}es N at\'{e} em obtermos a precis\~{a}o desejada.
+\end{flushleft}
+
+
+\begin{flushleft}
+Baseado nessa discuss\~{a}o, considere agora a seguinte fun\c{c}\~{a}o
+\end{flushleft}
+
+
+\begin{flushleft}
+x
+\end{flushleft}
+
+
+\begin{flushleft}
+f (x) = e2x cos .
+\end{flushleft}
+
+
+(16)
+
+
+4
+
+
+´1
+
+
+\begin{flushleft}
+(a) Escreva um programa FORTRAN que calcule I = 0 f (x) dx tanto pelo m\'{e}todo do trap\'{e}zio quanto pelo de
+\end{flushleft}
+
+
+\begin{flushleft}
+Simpson para diferentes valores da parti\c{c}\~{a}o h = 1/N .
+\end{flushleft}
+
+
+\begin{flushleft}
+(b) Preencha a tabela II com o valor absoluto dos desvios em rela\c{c}\~{a}o ao resultado exato |$\epsilon$|. Aponte o valor \'{o}timo
+\end{flushleft}
+
+
+\begin{flushleft}
+de h em cada um dos casos e discuta seus resultados.
+\end{flushleft}
+
+
+\begin{flushleft}
+(c) Fa\c{c}a um gr\'{a}fico de log10 |$\epsilon$| × log10 h para ambos os m\'{e}todos. Verifique que a ordem da converg\^{e}ncia das
+\end{flushleft}
+
+
+\begin{flushleft}
+aproxima\c{c}\~{o}es coincide com aquela esperada teoricamente e discuta seus resultados.
+\end{flushleft}
+
+
+\begin{flushleft}
+IS $\approx$
+\end{flushleft}
+
+
+
+
+
+\newpage
+5
+
+
+
+
+
+\begin{flushleft}
+Figura 2: Exemplo de um console do Xmgrace com os resultados de uma regress\~{a}o linear.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Breve discuss\~{a}o sobre a execu\c{c}\~{a}o dos problemas
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Nesses problemas \'{e} pedido que voc\^{e}s fa\c{c}am um gr\'{a}fico log10 |$\epsilon$| × log10 h. A ideia aqui \'{e} o erro |$\epsilon$| depende de uma
+\end{flushleft}
+
+
+\begin{flushleft}
+pot\^{e}ncia de h
+\end{flushleft}
+
+
+\begin{flushleft}
+|$\epsilon$| = Ah$\alpha$ ,
+\end{flushleft}
+
+
+
+
+
+(17)
+
+
+
+
+
+\begin{flushleft}
+onde A \'{e} uma constante num\'{e}rica sem import\^{a}ncia para nossa discuss\~{a}o e $\alpha$ \'{e} o expoente no qual estamos interessados.
+\end{flushleft}
+
+
+\begin{flushleft}
+Por exemplo quando dizemos que a converg\^{e}ncia de um m\'{e}todo \'{e} linear, quer dizer que $\alpha$ = 1. Uma converg\^{e}ncia
+\end{flushleft}
+
+
+\begin{flushleft}
+quadr\'{a}tica significa $\alpha$ = 2 e assim por diante.
+\end{flushleft}
+
+
+\begin{flushleft}
+Em situa\c{c}\~{o}es nas quais temos uma depend\^{e}ncia do tipo lei de pot\^{e}ncia, \'{e} conveniente aplicarmos o log dos dois
+\end{flushleft}
+
+
+\begin{flushleft}
+lados para extrairmos o valor do expoente em uma escala linear. Pela Eq. (17) temos ent\~{a}o que
+\end{flushleft}
+
+
+\begin{flushleft}
+log10 |$\epsilon$| = log10 Ah$\alpha$ ,
+\end{flushleft}
+
+
+\begin{flushleft}
+= log10 A + $\alpha$ log10 h.
+\end{flushleft}
+
+
+
+
+
+(18)
+
+
+
+
+
+\begin{flushleft}
+Ou seja, ao gerarmos a curva log10 |$\epsilon$| × log10 h conclu\'{i}mos que o coeficiente angular da reta d\'{a} diretamente o expoente
+\end{flushleft}
+
+
+\begin{flushleft}
+$\alpha$. Esse \'{e} o n\'{u}mero no qual estamos interessados para estudarmos a converg\^{e}ncia de cada um dos m\'{e}todos (o
+\end{flushleft}
+
+
+\begin{flushleft}
+coeficiente linear pode ser ignorado nessa discuss\~{a}o).
+\end{flushleft}
+
+
+\begin{flushleft}
+Para calcular o log na base 10, basta utilizarem a fun\c{c}\~{a}o DLOG10(). Voc\^{e}s dever\~{a}o ent\~{a}o gerar um gr\'{a}fico no
+\end{flushleft}
+
+
+\begin{flushleft}
+Xmgrace com essa curva. O pr\'{o}ximo passo \'{e} realizar uma regress\~{a}o linear para calcularmos $\alpha$.
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ Para ler o arquivo foo.dat e grafic\'{a}-lo fa\c{c}a: Data -$>$ Import -$>$ ASCII e escolha foo.dat.
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ Para realizar a regress\~{a}o linear fa\c{c}a: Data -$>$ Transformation -$>$ Regression. Isso vai gerar uma janela. Basta
+\end{flushleft}
+
+
+\begin{flushleft}
+clicar em Accept, pois a op\c{c}\~{a}o padr\~{a}o \'{e} a regress\~{a}o linear. Pronto, a curva j\'{a} \'{e} gerada automaticamente
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ Para visualizar a express\~{a}o anal\'{i}tica da curva, v\'{a} em Window -$>$ Console, veja um exemplo na Fig. 2
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ A express\~{a}o para a reta aparece, no exemplo na Fig. 2, como y = 1.2694 + 1.0135 ∗ x. O valor do coeficiente
+\end{flushleft}
+
+
+\begin{flushleft}
+angular \'{e} ent\~{a}o 1.01350 (2) ou 1.01350 $\pm$ 2, j\'{a} com o erro. O erro pode ser encontrado na linha {``}Standard error
+\end{flushleft}
+
+
+\begin{flushleft}
+of coefficient'' e nesse exemplo \'{e} dado por 2.46 × 10$-$5 .
+\end{flushleft}
+
+
+
+
+
+\newpage
+
+
+
+\end{document}

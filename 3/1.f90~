@@ -1,0 +1,75 @@
+program main
+
+  implicit none
+  real*16 x,h
+  integer i
+
+  x=1
+  print*, '\hline'
+  do i = 1, 8
+     h = 5. * 10.**(-i)
+     print*, e(x, dder(x,h)),'&', e(x, eder(x,h)),'&', e(x, der3(x,h)),'\\ \hline'
+          !e(x, der5(x,h)),'&', e2(x, der32(x, h)),'&', e2(x, der52(x, h)),'\\ \hline'
+     h = 10.**(-i)
+     print*, e(x, dder(x,h)),'&', e(x, eder(x,h)),'&', e(x, der3(x,h)),'\\ \hline'
+          !e(x, der5(x,h)),'&', e2(x, der32(x, h)),'&', e2(x, der52(x, h)),'\\ \hline'
+  end do
+
+  contains
+
+real*16 function f(x)
+  real*16, intent(in) :: x
+  f = exp(2*x)*sin(x)
+  return
+end function f
+
+real*16 function dder(x, h)
+
+  real*16, intent(in) :: x, h
+  dder = (f(x+h)-f(x))/h
+  return
+end function dder
+
+real*16 function eder(x, h)
+  real*16, intent(in) :: x, h
+  eder = (f(x)-f(x-h))/h
+  return
+end function eder
+
+real*16 function der3(x,h)
+  real*16, intent(in) :: x, h
+  der3 = (f(x+h)-f(x-h))/(2*h)
+  return
+end function der3
+
+real*16 function der5(x,h)
+  real*16, intent(in) :: x, h
+  der5 = (f(x-2*h)-8*f(x-h)+8*f(x+h)-f(x+2*h))/(12*h)
+  return
+end function der5
+
+real*16 function der32(x,h)
+  real*16, intent(in) :: x, h
+  der32 = (f(x+h)-2*f(x)+f(x-h))/(h**2)
+  return
+end function der32
+
+real*16 function der52(x,h)
+  real*16, intent(in) :: x, h
+  der52 = (-f(x-2*h)+16*f(x-h)-30*f(x)+16*f(x+h)-f(x+2*h))/(12*h**2)
+  return
+end function der52
+
+real*16 function e(x, n)
+  real*16, intent(in) :: x, n
+  e = abs(exp(2*x)* (2*sin(x)+cos(x)) - n)
+  return
+end function e
+
+real*16 function e2(x, n)
+  real*16, intent(in) :: x, n
+  e2 = abs(exp(2*x)*(3*sin(x)+4*cos(x)) - n)
+  return
+end function e2
+
+end program main
