@@ -3,12 +3,13 @@ program main2
 !  implicit none
 
   REAL ran2, dt, tmax
-  INTEGER A, ats,n , decaidos, r, n0, j, sumats
-  integer, allocatable :: mat(:,:)
+  INTEGER A, ats,n , decaidos, r, n0, j, sumats, tesc, ri, pos
+  integer, allocatable :: mat(:,:), hist(:,:)
   real, allocatable :: med(:), desvpad(:), desvpadmed(:)
+  logical inedito
 
   a = 12345
-  r = 10000
+  r = 1000
   decaidos = 0
   tmax = 8
   dt = 0.01
@@ -21,6 +22,7 @@ program main2
   allocate(desvpad(tmax/dt))
   allocate(desvpadmed(tmax/dt))
 
+  
   do j=1, r
      
      do t=1, tmax/dt
@@ -75,30 +77,88 @@ program main2
 
   end do
 
-  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  ! open(20, file='med.dat')    !
-  ! do i=1, size(med)           !
-  !    write(20,*) i*dt, med(i) !
-  ! end do                      !
-  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  ! ! open(20, file='med.dat')    !
+  ! ! do i=1, size(med)           !
+  ! !    write(20,*) i*dt, med(i) !
+  ! ! end do                      !
+  ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-  open(30, file='desvpad.dat')
-  do i=1, size(desvpad)
-     write(30,*) i*dt, desvpad(i)
-  end do
+  ! open(30, file='desvpad.dat')
+  ! do i=1, size(desvpad)
+  !    write(30,*) i*dt, desvpad(i)
+  ! end do
 
-  open(40, file='desvpadmed.dat')
-  do i=1, size(desvpadmed)
-     write(40,*) i*dt, desvpadmed(i)
-  end do
+  ! open(40, file='desvpadmed.dat')
+  ! do i=1, size(desvpadmed)
+  !    write(40,*) i*dt, desvpadmed(i)
+  ! end do
   
-  close(20)
-  close(30)
-  close(40)
+  ! close(20)
+  ! close(30)
+  ! close(40)
 
-  deallocate(mat)
+  ! deallocate(mat)
+
+  !=========== HISTOGRAMA =============!
+  
+  allocate(hist(2,r))
+
+do tesc= 100, 800, 100 ! loop mosntruoso
+
+   !-------- limpa lixo ----------!
+  do i=1, r
+     hist(1,i) = 0
+     hist(2,i) = 0
+  end do
+  !------------------------------!
+  
+  POS = 1
+  inedito = .true.
+
+  ! tesc é a posição do tempo escolhido
+  ! (ex. se tesc = 5, teremos os dados
+  ! referentes ao quinto instante:
+  !       (5 * dt) = 0.5)
+
+  do ri = 1, r
+     do i =1, r
+        if (mat(tesc, ri) .eq. hist(1,i)) then
+           hist(2,i) = hist(2,i)+1
+           inedito = .false.
+           !print*, mat(tesc, ri), 'encontrado pela vez', hist(2,i)
+           exit
+        end if
+     end do
+
+     if (inedito) then
+        hist(1, pos) = mat(tesc, ri)
+        hist(2, pos) = 1
+        pos = pos+1
+        !print*, mat(tesc, ri), 'é inédito'
+     end if
+
+     inedito=.true.
+  end do
+
+  open(50, file='hist'//char(tesc/100+48)//'.dat')
+  !nomear arquivos adicionando índices de 1 a 8
+  do i=1, r
+     if(hist(2,i)/=0) then
+        write(50,*) hist(1,i), hist(2,i)
+     end if
+  end do
+  close(50)
+
+end do
 
 
+!!!!!!!!
+  do i=1, r
+     print*, '------',mat(100,i)
+  end do
+  !!!!!
+!print*, hist
 end program main2
 
 

@@ -1,0 +1,10 @@
+program main
+  integer, allocatable :: m(:)
+
+  do i=1, 10
+     read(*,*) r
+     m(i) = r
+  end do
+
+  allocate(m(i))
+end program main

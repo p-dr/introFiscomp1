@@ -1,0 +1,9 @@
+
+title "Gr\ca\Cfico 7"
+subtitle "\cB\Cngulo \xq\f{} com vertical de p\cj\Cndulo simples simulado por m\ci\Ctodo de Euler em fun\cgc\Co do tempo"
+xaxis label ""
+yaxis label ""
+device "PNG" dpi 300
+page size 1250, 1000
+print to "graf7.png"
+hardcopy device "PNG"

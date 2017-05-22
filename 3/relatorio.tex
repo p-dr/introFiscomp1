@@ -12,6 +12,9 @@
 \begin{document}
 \maketitle
 
+\section{Introdução}
+As aproximações para cálculo diferencial estão presentes em quase todo computador atualmente. Elas são indispensáveis para automatizar os processos de integração e derivação, pois oferecem, com a desvantagem da imprecisão, algoritmos simples para realizar tais operações. O vigente projeto busca explirar essas características, demonstrando como desenvolver métodos computacionais para a resolução de problemas no âmbito do cálculo numérico.
+
 \section{Derivada numérica}
 
 Neste programa, criou-se  funções FORTRAN para calcular derivadas numéricas da função matemática $f(x)=e^{2x}\sin{x}$. Cada função FORTRAN levava dois argumentos: $x$ e $h$; e retornava o resultado de uma das fórmulas a seguir:
@@ -78,7 +81,8 @@ Os valores ótimos de $h$, que geraram menor desvio das aproximações, obtidos 
 
 O comportamento constatado de $|\epsilon|$ é facilmente observado ao plotar-se $\log10{|\epsilon|}$ em função do $\log10{h}$ (Gráfico 1). Percebe-se que quanto maior a  ordem de aproximação, embora sejam atingidos valores mais baixos para o desvio, maior é o $h$ ótimo (abscissa do ponto mínimo de cada série no gráfico 1). Isto se deve ao fato de que $|\epsilon|$ diminui com dependência maior de $h$ quanto maior for a ordem de aproximação. Desta forma, enquanto $h$ diminui, as aproximações de ordem mais elevada mais rapidamente atingem um valor de $|\epsilon|$ não suportado pela precisão utilizada, divergindo.
 
-\begin{figure}[h]
+
+\begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{graf1}
   \caption{$log_{10}|\epsilon|$ das derivadas numéricas de $f (x)$ no ponto $x = 1$, obtidas
@@ -86,8 +90,18 @@ por meio de diferentes aproximações, em função de $log_{10}h$.}
 \label{fig:1}
 \end{figure}
 
+Foram calculados somente os coeficientes de regressão linear do erro associado às derivadas de 2 pontos, pois no caso das demais, os problemas associados à precisão (aumento inesperado de $|\epsilon|$) impediriam que se constatasse a real ordem das aproximações. Para ambos os casos em que isso foi possível, obteve-se valor próximo de 1 para os coeficientes, exatamente como esperado de uma aproximação de primeira ordem e como mostrado no gráfico.
+
 \section{Integração numérica}
-Foram elaboradas duas funções FORTRAN de precisão dupla, TRAP e SIMP, para aplicar, respectivamente os métodos do Trapézio e de Simpson para cálculo de integrais numéricas no intervalo $[0,1]$ à função $f(x) = e^{2x}\cos{x/4}$.\par
+Foram elaboradas duas funções FORTRAN de precisão dupla, TRAP e SIMP, para aplicar, respectivamente os métodos do Trapézio
+
+\[\int_{a}^{b}f(x)dx \approx h [0.5f (a) + f (a + h) + f (a + 2h) + f (a + 3h) + . . . + f (b - h) + 0.5f (b)]\]
+
+ e de Simpson
+
+\[\int_{a}^{b}f(x)dx \approx \frac{h}{3}[f (a) + 4f (a + h) + 2f (a + 2h) + 4f (a + 3h) + 2f (a + 4h). . . + f (b)]\]
+
+para cálculo de integrais numéricas no intervalo $[0,1]$ à função $f(x) = e^{2x}\cos{x/4}$.\par
 
 \begin{lstlisting}
   REAL*8  FUNCTION F(X)
@@ -163,7 +177,7 @@ $2^{-13}$ & 1.47294012542431E-08 & 3.10862446895043E-15\\
 
 E plotou-se $log_{10}|\epsilon|$ versus $log_{10}h$ para avaliar o comportamento do desvio (Gráfico 2).
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{graf2}
   \caption{Integral numérica de $f(x)$ no intervalo $[0, 1]$ por meio das aproximações do Trapézio (TRAP) e de Simpson (SIMP) como função da partição do intervalo $h$.}

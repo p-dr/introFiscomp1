@@ -264,7 +264,7 @@ Como esperado, a análise visual não revela nenhum padrão consistente nas repr
 
 \subsection{Decaimento radioativo}
 O objetivo do vigente procedimento foi simular um processo de decaimento radioativo, por meio da produção de números pseudo-aleatórios.\par
-Para esse programa, utilizou-se a função ran2, que gera números pseudo-aleatórios entre 0 e 1 com sementes diferentes a cada vez. Pode-se encontrá-la no site do Model, Analysis, and Prediction Program, da NASA (<https://map.nasa.gov/GEOSgcm_f90toHTML/html_code/src/nr_ran2_gasdev.f90.html\>, Acesso em: 6 abr 2017).\paragraph{}
+Para esse programa, utilizou-se a função ran2, que gera números pseudo-aleatórios entre 0 e 1 com sementes diferentes a cada vez. Pode-se encontrá-la no site do Model, Analysis, and Prediction Program, da NASA (<\url{https://map.nasa.gov/GEOSgcm_f90toHTML/html_code/src/nr_ran2_gasdev.f90.html\}>, Acesso em: 6 abr 2017).\paragraph{}
 A probabilidade $P$ de que um átomo decaia em um intervalo de tempo $dt$ se relaciona com o tempo de meia vida $\tau$ da seguinte forma:
 
 \begin{equation}
@@ -308,4 +308,61 @@ Tanto o gráfico 7 como o 8 apresentam ruído, oscilações imprevisíveis dos v
 
 É possível relacional intuitivamente o espaçamento vertical entre as séries do gráfico 6 ao comportamento do desvio padrão mostrado no gráfico 7: ambos tem variação qualitativamente sincronizada.\par
 
+Foi também elaborado o programa abaixo, que calcula uma matriz hist de dimensões 2 por R, que armazena, para um único intervalo de tempo, quantas vezes cada quantidade de átomos aparece entre as R amostras, sendo que a quantidade ocupa uma coluna e o numero de atomos a outra, e dados relacionados ocupam a mesma linha. Na grande maioria das vezes, não serão usadas todas as R linhas da matriz, e um condicional foi utilizado para imprimir somente os dados relevantes (descartar os itens nulos de hist).
+
+\begin{lstlisting}
+
+  !=========== HISTOGRAMA =============!
+  
+  allocate(hist(2,r))
+
+do tesc= 100, 800, 100 ! loop mosntruoso
+
+   !-------- limpa lixo ----------!
+  do i=1, r
+     hist(1,i) = 0
+     hist(2,i) = 0
+  end do
+  !------------------------------!
+  
+  ! POS é a próxima posição que ainda não foi
+  ! ocupada em hist, necessario para nao sobrescrever
+  
+  POS = 1
+
+  inedito = .true.
+
+  ! tesc é a posição do tempo escolhido
+  ! (ex. se tesc = 5, teremos os dados
+  ! referentes ao quinto instante:
+  !       (5 * dt) = 0.5)
+
+  do ri = 1, r
+     do i =1, r
+        if (mat(tesc, ri) .eq. hist(1,i)) then
+           hist(2,i) = hist(2,i)+1
+           inedito = .false.
+           exit
+        end if
+     end do
+
+     if (inedito) then
+        hist(1, pos) = mat(tesc, ri)
+        hist(2, pos) = 1
+        pos = pos+1
+     end if
+
+     inedito=.true.
+  end do
+\end{lstlisting}
+
+Fez-se necessário igualar todos os elementos da matriz a 0, inicialmente, pois o lixo de memória se constituiu um empecilho.
+O programa foi rodado para diferentes intervalos, e os resultados são exibidos nos gráficos a seguir:
+
+\includegraphics[width=\textwidth]{graf9}
+\includegraphics[width=\textwidth]{graf10}
+\includegraphics[width=\textwidth]{graf11}
+\includegraphics[width=\textwidth]{graf12}
+\includegraphics[width=\textwidth]{graf13}
+\includegraphics[width=\textwidth]{graf14}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  2 MAY 2017 12:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.3.22)  2 MAY 2017 13:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -541,16 +541,16 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 17.
+(Font)              <7> on input line 20.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 17.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 20.
+(Font)              <5> on input line 20.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 20.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
  (./tab1.txt)
 (./tab2.txt)
 
@@ -570,52 +570,41 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <graf1.png, id=16, 1204.5pt x 744.7825pt>
 File: graf1.png Graphic file (type png)
  <use graf1.png>
-Package pdftex.def Info: graf1.png used on input line 83.
+Package pdftex.def Info: graf1.png used on input line 87.
 (pdftex.def)             Requested size: 540.60236pt x 334.28532pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[2]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<graf2.png, id=21, 1150.2975pt x 710.655pt>
+ [2] [3 <./graf1.png>] <graf2.png, id=25, 1150.2975pt x 710.655pt>
 File: graf2.png Graphic file (type png)
  <use graf2.png>
-Package pdftex.def Info: graf2.png used on input line 168.
+Package pdftex.def Info: graf2.png used on input line 182.
 (pdftex.def)             Requested size: 540.60236pt x 333.99706pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3] [4 <./graf1.png>] [5 <./graf2.png>] (./relatorio.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[4] [5 <./graf2.png>] (./relatorio.aux) ) 
 Here is how much of TeX's memory you used:
- 3947 strings out of 494946
- 52766 string characters out of 6180981
- 139984 words of memory out of 5000000
- 7192 multiletter control sequences out of 15000+600000
+ 3948 strings out of 494946
+ 52774 string characters out of 6180981
+ 138984 words of memory out of 5000000
+ 7193 multiletter control sequences out of 15000+600000
  7280 words of font info for 26 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,10n,32p,667b,1518s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy7.pfb>
-Output written on relatorio.pdf (5 pages, 206244 bytes).
+ 38i,10n,32p,667b,985s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on relatorio.pdf (5 pages, 222293 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

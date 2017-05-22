@@ -1,0 +1,37 @@
+program main
+  real*8 x, y, v, vx, vy, teta
+  real*8, parameter :: pi=4*datan(1.d0), dt=.01d0, g=9.80665d0
+  character(len=20) :: label
+  label = '\xq\f{} = **** \xp'
+
+  do i=10, 45, 5
+     teta = dfloat(i)/100.d0*pi
+     call zerar() 
+
+     write(label(11:14), '(F4.2)') teta/pi
+     print*, 'label, vx, vy', label, vx, vy
+
+     open(10, file=label)
+
+     do while (y .ge. 0)
+        write(10,*) x,y
+        x = x + vx*dt
+        y = y + vy*dt
+        !vx=vx !vx constante
+        vy = vy - g*dt
+        
+     end do
+     close(10)
+end do
+
+contains
+  
+subroutine zerar()
+  x=0
+  y=0
+  v=700
+  vx=v*dcos(teta)
+  vy=v*dsin(teta)
+end subroutine zerar
+
+end program main

@@ -1,0 +1,3 @@
+device "PNG" dpi 300
+page size 1250, 1000
+hardcopy device "PNG"
